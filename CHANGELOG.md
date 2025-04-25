@@ -1,5 +1,11 @@
 # set-commit-status
 
+## 1.0.1
+
+### Patch Changes
+
+- d5ead46: Link to job.
+
 ## 1.0.0
 
 ### Major Changes
