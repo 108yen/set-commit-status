@@ -11,7 +11,10 @@ This action allows you to set the commit status on github.
 - `context`: Context of status. (optional)
 - `description`: Description of status. (optional)
 
-### Example workflow
+### Example
+
+> [!IMPORTANT]
+> This action need `statuses: write` permission.
 
 This is an example of a test workflow that triggered vercel preview build event.
 As shown in the [official example](https://vercel.com/guides/how-can-i-run-end-to-end-tests-after-my-vercel-preview-deployment), this is useful when the vercel deployment triggers a playwright test.
@@ -47,17 +50,17 @@ jobs:
       statuses: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.client_payload.git.sha }}
-
       - name: Set pending status
         uses: 108yen/set-commit-status@v1
         with:
           status: pending
           description: Test in progress
           sha: ${{ github.event.client_payload.git.sha }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.git.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
