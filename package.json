@@ -5,7 +5,17 @@
   "description": "Set github commit status",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "pnpm ncc build src/index.ts -o dist --source-map --license licenses.txt",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check --cache .",
+    "format:write": "prettier --write --cache .",
+    "lint": "eslint . --max-warnings=0 --cache",
+    "lint:inspect": "pnpm dlx @eslint/config-inspector",
+    "typecheck": "tsc --noEmit",
+    "spellcheck": "cspell \"**/*.{js,jsx,mjs,ts,tsx,mts,md,mdx}\" --quiet",
+    "gen:tags": "tsx scripts/update-tags.ts"
   },
   "keywords": [
     "github actions",

@@ -1,0 +1,91 @@
+name: Release and Publish
+
+on:
+  pull_request_target:
+    types:
+      - closed
+    branches:
+      - main
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release:
+    name: Release
+
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'changeset-release/main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run build
+        run: pnpm build
+
+      - name: Release
+        id: release
+        uses: 108yen/changeset-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    name: Publish
+
+    needs: release
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.release.outputs.tag }}
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Setup Git user
+        run: |
+          git config --global user.email "kazuking.1911@gmail.com"
+          git config --global user.name "108yen"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run build
+        run: pnpm build
+
+      - name: Publish
+        run: pnpm gen:tags
