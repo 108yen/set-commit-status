@@ -39,6 +39,7 @@
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-perfectionist": "^4.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
+    "find-packages": "^10.0.4",
     "globals": "^16.0.0",
     "lefthook": "^1.7.18",
     "prettier": "^3.3.3",
