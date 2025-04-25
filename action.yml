@@ -1,4 +1,4 @@
-name: "Set Commit Status"
+name: "Set Commit Status Action"
 description: "A Github action for set github commit status"
 
 branding:
