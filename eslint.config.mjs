@@ -33,7 +33,7 @@ const sourceFilePaths = {
 /** @type {Pick<TSESLintConfig, "name" | "ignores">} */
 const ignoreTSESConfig = {
   ignores: ["node_modules/**", "**/pnpm-lock.yaml", ".eslintcache", "dist/**"],
-  name: "@changeset-release/ignores/base",
+  name: "ignores/base",
 }
 
 /** @type {Pick<TSESLintConfig, "name" | "languageOptions">} */
@@ -53,7 +53,7 @@ const languageOptionTSESConfig = {
       sourceType: "module",
     },
   },
-  name: "@changeset-release/language-options/base",
+  name: "language-options/base",
 }
 
 const allSourceFileExtensions = [
@@ -71,7 +71,7 @@ const allSourceFileExtensions = [
 /** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules" | "settings">} */
 const importTSESConfig = {
   files: sourceFilePaths.all,
-  name: "@changeset-release/import/base",
+  name: "import/base",
   plugins: {
     import: fixupPluginRules(pluginImport),
     "unused-imports": pluginUnusedImports,
@@ -103,7 +103,7 @@ const importTSESConfig = {
 /** @type {Pick<TSESLintConfig, "name" | "files" | "rules">} */
 const eslintTSESConfig = {
   files: sourceFilePaths.all,
-  name: "@changeset-release/eslint/base",
+  name: "eslint/base",
   rules: {
     ...eslint.configs.recommended.rules,
   },
@@ -113,7 +113,7 @@ const eslintTSESConfig = {
 const typescriptTSESConfigArray = [
   {
     files: sourceFilePaths.all,
-    name: "@changeset-release/typescript/base",
+    name: "typescript/base",
     plugins: {
       "@typescript-eslint": tseslintPlugin,
     },
@@ -141,7 +141,7 @@ const typescriptTSESConfigArray = [
   // These rules existed in the `.eslintrc`.
   {
     files: sourceFilePaths.js,
-    name: "@changeset-release/typescript/disabled-in-js",
+    name: "typescript/disabled-in-js",
     plugins: {
       "@typescript-eslint": tseslintPlugin,
     },
@@ -156,7 +156,7 @@ const typescriptTSESConfigArray = [
  */
 const prettierTSESConfig = {
   files: sourceFilePaths.all,
-  name: "@changeset-release/prettier/base",
+  name: "prettier/base",
   rules: {
     curly: "off",
     "no-unexpected-multiline": "off",
@@ -166,7 +166,7 @@ const prettierTSESConfig = {
 /** @type {Pick<TSESLintConfig, "name" | "files" | "plugins" | "rules" | "settings">} */
 const sortTSESConfig = {
   files: sourceFilePaths.all,
-  name: "@changeset-release/sort/base",
+  name: "sort/base",
   plugins: {
     perfectionist,
   },
