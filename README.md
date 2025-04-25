@@ -90,7 +90,7 @@ jobs:
         uses: 108yen/set-commit-status@v1
         with:
           status: success
-          description: Passing test
+          description: Test successful
           sha: ${{ github.event.client_payload.git.sha }}
 
       - name: Set failure status

@@ -22,6 +22,10 @@ inputs:
     description: Token with status write permission. Do not specify this.
     required: false
     default: ${{ github.token }}
+  job_id:
+    description: Job id on which this action is running.
+    required: false
+    default: ${{ github.job }}
 
 runs:
   using: "node20"
