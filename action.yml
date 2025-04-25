@@ -18,6 +18,10 @@ inputs:
   description:
     description: "Description of status"
     required: false
+  github_token:
+    description: Token with status write permission. Do not specify this.
+    required: false
+    default: ${{ github.token }}
 
 runs:
   using: "node20"

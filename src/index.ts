@@ -8,11 +8,10 @@ async function main() {
   const sha = core.getInput("sha", { required: true })
   const context = core.getInput("context") || github.context.workflow
   const description = core.getInput("description")
+  const githubToken = process.env.GITHUB_TOKEN ?? core.getInput("github_token")
 
   const { owner, repo } = github.context.repo
   const target_url = `https://github.com/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
-
-  const githubToken = process.env.GITHUB_TOKEN
 
   if (!githubToken) {
     core.setFailed("Please add the GITHUB_TOKEN")
