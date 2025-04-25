@@ -1,21 +1,23 @@
-name: "Changeset Release"
-description: "A Github action for creating non-public releases with changesets"
+name: "Set Commit Status"
+description: "A Github action for set github commit status"
 
 branding:
   icon: octagon
   color: yellow
 
 inputs:
-  format:
-    description: "The release tag format"
+  status:
+    description: 'The status to be set for commit ("error", "failure", "pending", "success")'
+    required: true
+  sha:
+    description: "Commit hash for which the status is to be set"
+    required: true
+  context:
+    description: "Context of status"
     required: false
-  target:
-    description: "Specifies the commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Unused if the Git tag already exists. Default: the repository's default branch."
+  description:
+    description: "Description of status"
     required: false
-
-outputs:
-  tag:
-    description: "The release tag"
 
 runs:
   using: "node20"

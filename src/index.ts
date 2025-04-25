@@ -15,13 +15,15 @@ function isCommitState(value: any): value is CommitState {
 
 async function main() {
   try {
-    const state = core.getInput("state", { required: true })
-    const sha = process.env.SHA ?? ""
-    const context = process.env.CONTEXT ?? github.context.workflow
-    const description = process.env.DESCRIPTION
-    const githubToken = process.env.GITHUB_TOKEN
+    const state = core.getInput("status", { required: true })
+    const sha = core.getInput("sha", { required: true })
+    const context = core.getInput("context") || github.context.workflow
+    const description = core.getInput("description")
+
     const { owner, repo } = github.context.repo
     const target_url = `https://github.com/${owner}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`
+
+    const githubToken = process.env.GITHUB_TOKEN
 
     if (!githubToken) {
       console.log("Please add the GITHUB_TOKEN")
@@ -30,7 +32,7 @@ async function main() {
 
     if (!isCommitState(state)) {
       console.log(
-        'Unexpected state value. State value need to be ["error", "failure", "pending", "success"],',
+        'Unexpected state value. State value need to be ("error", "failure", "pending", "success"),',
       )
       return
     }
