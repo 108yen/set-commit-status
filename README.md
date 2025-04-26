@@ -1,5 +1,8 @@
 # 108yen/set-commit-status
 
+[![codecov](https://codecov.io/gh/108yen/set-commit-status/graph/badge.svg?token=F2CQYGDLHE)](https://codecov.io/gh/108yen/set-commit-status)
+[![MIT LIcense](https://img.shields.io/github/license/108yen/set-commit-status)](https://img.shields.io/github/license/108yen/set-commit-status)
+
 This action allows you to set the commit status on github.
 
 ## Usage
