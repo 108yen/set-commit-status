@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   lint:
-    name: Lint
+    name: ESLint
 
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -43,7 +43,7 @@ jobs:
         run: pnpm lint
 
   format:
-    name: Format
+    name: Prettier
 
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -93,6 +93,32 @@ jobs:
 
       - name: Run typecheck
         run: pnpm typecheck
+
+  test:
+    name: Vitest
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run test
+        run: pnpm test
 
   build:
     name: Build
