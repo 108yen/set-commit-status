@@ -1,5 +1,11 @@
 # set-commit-status
 
+## 1.0.2
+
+### Patch Changes
+
+- 085a5f6: Fixed input token does not used.
+
 ## 1.0.1
 
 ### Patch Changes
