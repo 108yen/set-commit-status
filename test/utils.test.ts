@@ -15,6 +15,9 @@ describe("utils", () => {
 
     test("Return false then value not match", () =>
       expect(isCommitState("xxx")).toBeFalsy())
+
+    test("Return false then value type is not string", () =>
+      expect(isCommitState(0)).toBeFalsy())
   })
 
   describe.skip("setupOctokit")
