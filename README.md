@@ -1,3 +1,12 @@
+<p align="center">
+  <a href="https://codecov.io/gh/108yen/set-commit-status" > 
+    <img src="https://codecov.io/gh/108yen/set-commit-status/graph/badge.svg?token=US1CPV0MSD"/> 
+  </a>
+  <a href="https://img.shields.io/github/license/108yen/set-commit-status">
+    <img alt="MIT License" src="https://img.shields.io/github/license/108yen/set-commit-status">
+  </a>
+</p>
+
 # 108yen/set-commit-status
 
 This action allows you to set the commit status on github.
