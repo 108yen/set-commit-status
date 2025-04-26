@@ -3,13 +3,13 @@ import * as github from "@actions/github"
 
 import { isCommitState, setupOctokit } from "./utils"
 
-async function main() {
+export async function main() {
   const state = core.getInput("status", { required: true })
   const sha = core.getInput("sha", { required: true })
   const context = core.getInput("context") || github.context.workflow
   const description = core.getInput("description")
   const jobID = core.getInput("job_id")
-  const githubToken = process.env.GITHUB_TOKEN ?? core.getInput("github_token")
+  const githubToken = core.getInput("github_token") || process.env.GITHUB_TOKEN
 
   const { owner, repo } = github.context.repo
 
@@ -17,10 +17,10 @@ async function main() {
 
   if (process.env.GITHUB_RUN_ID) {
     target_url += `/runs/${process.env.GITHUB_RUN_ID}`
-  }
 
-  if (jobID) {
-    target_url += `/job/${jobID}`
+    if (jobID) {
+      target_url += `/job/${jobID}`
+    }
   }
 
   if (!githubToken) {
@@ -30,7 +30,7 @@ async function main() {
 
   if (!isCommitState(state)) {
     core.setFailed(
-      'Unexpected state value. State value need to be ("error", "failure", "pending", "success"),',
+      'Unexpected state value. State value need to be ("error", "failure", "pending", "success")',
     )
     return
   }

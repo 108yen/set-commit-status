@@ -1,5 +1,6 @@
-import { isCommitState } from "src/utils"
 import { describe, expect, test } from "vitest"
+
+import { isCommitState } from "../src/utils"
 
 describe("utils", () => {
   describe("isCommitState", () => {
@@ -15,4 +16,6 @@ describe("utils", () => {
     test("Return false then value not match", () =>
       expect(isCommitState("xxx")).toBeFalsy())
   })
+
+  describe.skip("setupOctokit")
 })
