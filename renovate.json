@@ -13,16 +13,13 @@
     {
       "groupName": "dependencies",
       "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "schedule": ["* * 1 * *"]
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"]
     },
     {
       "groupName": "dependencies",
       "addLabels": ["major"],
       "matchDepTypes": ["dependencies"],
-      "matchUpdateTypes": ["major"],
-      "schedule": ["* * 1 * *"],
-      "automerge": false
+      "matchUpdateTypes": ["major"]
     },
     {
       "groupName": "devDependencies",
