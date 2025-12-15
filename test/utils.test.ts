@@ -73,7 +73,7 @@ describe("utils", () => {
           headers: {
             accept: "application/vnd.github.v3+json",
             "content-type": "application/json; charset=utf-8",
-            "user-agent": "octokit-core.js/5.2.1 Node.js/22",
+            "user-agent": "octokit-core.js/5.2.1 Node.js/24",
           },
           method: "POST",
           redirect: undefined,
@@ -131,7 +131,7 @@ describe("utils", () => {
             headers: {
               accept: "application/vnd.github.v3+json",
               "content-type": "application/json; charset=utf-8",
-              "user-agent": "octokit-core.js/5.2.1 Node.js/22",
+              "user-agent": "octokit-core.js/5.2.1 Node.js/24",
             },
             method: "POST",
             redirect: undefined,
@@ -194,7 +194,7 @@ describe("utils", () => {
             headers: {
               accept: "application/vnd.github.v3+json",
               "content-type": "application/json; charset=utf-8",
-              "user-agent": "octokit-core.js/5.2.1 Node.js/22",
+              "user-agent": "octokit-core.js/5.2.1 Node.js/24",
             },
             method: "POST",
             redirect: undefined,
@@ -259,7 +259,7 @@ describe("utils", () => {
             headers: {
               accept: "application/vnd.github.v3+json",
               "content-type": "application/json; charset=utf-8",
-              "user-agent": "octokit-core.js/5.2.1 Node.js/22",
+              "user-agent": "octokit-core.js/5.2.1 Node.js/24",
             },
             method: "POST",
             redirect: undefined,
@@ -323,7 +323,7 @@ describe("utils", () => {
             headers: {
               accept: "application/vnd.github.v3+json",
               "content-type": "application/json; charset=utf-8",
-              "user-agent": "octokit-core.js/5.2.1 Node.js/22",
+              "user-agent": "octokit-core.js/5.2.1 Node.js/24",
             },
             method: "POST",
             redirect: undefined,
