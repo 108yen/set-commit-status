@@ -1,0 +1,4 @@
+packages:
+  - "."
+
+minimalReleaseAge: 10080
