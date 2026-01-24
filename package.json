@@ -51,7 +51,7 @@
     "@typescript-eslint/parser": "^8.8.0",
     "@vercel/ncc": "^0.38.2",
     "@vitest/coverage-v8": "^4.0.0",
-    "@vitest/ui": "4.0.16",
+    "@vitest/ui": "4.0.17",
     "cspell": "^9.0.0",
     "eslint": "^9.11.1",
     "eslint-import-resolver-node": "^0.3.9",
