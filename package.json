@@ -49,7 +49,7 @@
     "@types/semver": "^7.5.8",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
     "@typescript-eslint/parser": "^8.8.0",
-    "@vercel/ncc": "^0.44.0",
+    "@vercel/ncc": "^0.45.0",
     "@vitest/coverage-v8": "^4.0.0",
     "@vitest/ui": "4.1.10",
     "cspell": "^9.0.0",
